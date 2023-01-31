@@ -1,21 +1,39 @@
-import "./globals.css"
-import { Montserrat } from "@next/font/google"
+import './globals.css'
+import { Montserrat, Lobster } from '@next/font/google'
 
 const montserrat = Montserrat({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-montserrat",
+	weight: ['400', '700'],
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
+const lobster = Lobster({
+	weight: ['400'],
+	subsets: ['latin'],
+	variable: '--font-lobster',
 })
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      {/*
+	return (
+		<html lang='en'>
+			{/*
         <head /> will contain the components returned by the nearest parent
-        head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
-      <body className={`${montserrat.className} m-32`}>{children}</body>
-    </html>
-  )
+			<head />
+			<body className={`${montserrat.className} mx-32 my-12`}>
+				{/* <nav className={lobster.className}>
+					<h1>Logo</h1>
+					<ul>
+						<li>
+							<a href='#'>About</a>
+						</li>
+						<li>
+							<a href='#'>Sign Up</a>
+						</li>
+					</ul>
+				</nav> */}
+				{children}
+			</body>
+		</html>
+	)
 }
